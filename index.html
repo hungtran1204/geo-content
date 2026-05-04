@@ -1,0 +1,1221 @@
+﻿<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Training Content SEO, AEO, GEO & Zero Click</title>
+    <style>
+:root {
+  color-scheme: light;
+  --ink: #182026;
+  --muted: #63717c;
+  --line: #dce4e8;
+  --soft: #f5f8f8;
+  --panel: #ffffff;
+  --accent: #0f766e;
+  --accent-strong: #0b5f59;
+  --gold: #b7791f;
+  --rose: #b42348;
+  --blue: #2563eb;
+  --shadow: 0 18px 40px rgba(24, 32, 38, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #edf3f2;
+  color: var(--ink);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: minmax(280px, 320px) minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: auto;
+  padding: 24px 18px;
+  background: #142423;
+  color: #f7fbfb;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.brand-block {
+  display: grid;
+  gap: 8px;
+  padding: 14px 12px 22px;
+}
+
+.brand-block strong {
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+.eyebrow {
+  color: #6fbfb7;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.search-box {
+  display: grid;
+  gap: 8px;
+  margin: 4px 0 18px;
+  color: #dcebea;
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.search-box input {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  padding: 11px 12px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  outline: none;
+}
+
+.search-box input::placeholder {
+  color: rgba(255, 255, 255, 0.54);
+}
+
+.search-box input:focus {
+  border-color: #6fbfb7;
+  box-shadow: 0 0 0 3px rgba(111, 191, 183, 0.16);
+}
+
+.progress-wrap {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  align-items: center;
+  margin: 0 0 20px;
+  color: #b8cecb;
+  font-size: 0.8rem;
+}
+
+.progress-track {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.progress-bar {
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: #6fbfb7;
+  transition: width 160ms ease;
+}
+
+.toc {
+  display: grid;
+  gap: 4px;
+  padding-bottom: 32px;
+}
+
+.toc a {
+  display: block;
+  border-radius: 7px;
+  padding: 8px 10px;
+  color: #d8e7e5;
+  text-decoration: none;
+  line-height: 1.35;
+  font-size: 0.88rem;
+}
+
+.toc a:hover,
+.toc a.active {
+  background: rgba(111, 191, 183, 0.16);
+  color: #ffffff;
+}
+
+.toc .toc-h2 {
+  padding-left: 22px;
+  font-size: 0.82rem;
+  color: #b8cecb;
+}
+
+.main-content {
+  min-width: 0;
+  padding: 32px clamp(18px, 4vw, 54px) 72px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(260px, 0.55fr);
+  gap: 22px;
+  align-items: stretch;
+  min-height: 360px;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  padding: clamp(26px, 5vw, 54px);
+  background:
+    linear-gradient(135deg, rgba(20, 36, 35, 0.96), rgba(15, 118, 110, 0.88)),
+    url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  box-shadow: var(--shadow);
+}
+
+.hero h1 {
+  max-width: 920px;
+  margin: 12px 0;
+  font-size: clamp(2.15rem, 4.8vw, 4.8rem);
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+
+.hero p {
+  max-width: 760px;
+  margin: 0;
+  color: #d7efec;
+  font-size: clamp(1rem, 1.7vw, 1.2rem);
+  line-height: 1.65;
+}
+
+.hero-panel {
+  display: grid;
+  align-content: end;
+  gap: 12px;
+}
+
+.hero-panel > div {
+  display: grid;
+  gap: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+}
+
+.metric {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.tool-strip {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  margin: 0 0 18px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(14px);
+}
+
+.view-switch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip,
+.ghost-button {
+  min-height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 12px;
+  background: #ffffff;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.chip.active,
+.chip:hover,
+.ghost-button:hover {
+  border-color: rgba(15, 118, 110, 0.34);
+  background: #e7f4f2;
+  color: var(--accent-strong);
+}
+
+.status-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px;
+  background: #ffffff;
+  box-shadow: var(--shadow);
+}
+
+.status-card.is-hidden {
+  display: none;
+}
+
+.training-content {
+  display: grid;
+  gap: 18px;
+}
+
+.training-section {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.training-section.is-hidden {
+  display: none;
+}
+
+.section-head {
+  display: grid;
+  gap: 10px;
+  padding: 24px 26px;
+  border-bottom: 1px solid var(--line);
+  background: #fbfdfc;
+}
+
+.section-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.section-badge {
+  border-radius: 999px;
+  padding: 5px 9px;
+  background: #e7f4f2;
+  color: var(--accent-strong);
+}
+
+.training-section[data-type="module"] .section-badge {
+  background: #eef2ff;
+  color: var(--blue);
+}
+
+.training-section[data-type="checklist"] .section-badge {
+  background: #fff7ed;
+  color: var(--gold);
+}
+
+.section-head h2 {
+  margin: 0;
+  font-size: clamp(1.45rem, 2.6vw, 2.25rem);
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
+.section-body {
+  display: grid;
+  gap: 18px;
+  padding: 24px 26px 28px;
+}
+
+.section-body h2,
+.section-body h3,
+.section-body h4 {
+  scroll-margin-top: 90px;
+  margin: 18px 0 0;
+  letter-spacing: 0;
+}
+
+.section-body h2 {
+  padding-top: 10px;
+  color: var(--accent-strong);
+  font-size: 1.35rem;
+}
+
+.section-body h3 {
+  font-size: 1.08rem;
+}
+
+.section-body p,
+.section-body li {
+  color: #34454e;
+  line-height: 1.75;
+}
+
+.section-body p {
+  margin: 0;
+}
+
+.section-body ul,
+.section-body ol {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.section-body li + li {
+  margin-top: 8px;
+}
+
+.task-li {
+  list-style: none;
+  margin-left: -1.25rem;
+}
+
+.task-li label {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 10px;
+  align-items: start;
+  cursor: pointer;
+}
+
+.task-li input {
+  width: 18px;
+  height: 18px;
+  margin-top: 4px;
+  accent-color: var(--accent);
+}
+
+.task-li:has(input:checked) span {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+.section-body strong {
+  color: #17272c;
+}
+
+.content-divider {
+  height: 1px;
+  margin: 4px 0;
+  background: var(--line);
+}
+
+.callout {
+  border-left: 5px solid var(--accent);
+  border-radius: 8px;
+  padding: 16px 18px;
+  background: #edf8f6;
+  color: #1f3c3a;
+}
+
+.callout strong:first-child {
+  display: inline-block;
+  margin-bottom: 5px;
+  color: var(--accent-strong);
+}
+
+.callout.warning {
+  border-left-color: var(--rose);
+  background: #fff1f2;
+}
+
+.callout.gold {
+  border-left-color: var(--gold);
+  background: #fff8ea;
+}
+
+.table-wrap {
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+table {
+  width: 100%;
+  min-width: 580px;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 13px 14px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.55;
+}
+
+th {
+  position: sticky;
+  top: 0;
+  background: #eef6f5;
+  color: #173937;
+  font-size: 0.84rem;
+  text-transform: uppercase;
+}
+
+tr:last-child td {
+  border-bottom: 0;
+}
+
+.example-card,
+.checklist-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.example-card > summary,
+.checklist-card > summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  min-height: 50px;
+  padding: 14px 16px;
+  cursor: pointer;
+  color: var(--accent-strong);
+  font-weight: 850;
+  list-style: none;
+}
+
+.example-card > summary::-webkit-details-marker,
+.checklist-card > summary::-webkit-details-marker {
+  display: none;
+}
+
+.example-card > summary::after,
+.checklist-card > summary::after {
+  content: "+";
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #e7f4f2;
+}
+
+.example-card[open] > summary::after,
+.checklist-card[open] > summary::after {
+  content: "−";
+}
+
+.example-card .details-body,
+.checklist-card .details-body {
+  display: grid;
+  gap: 14px;
+  padding: 0 16px 16px;
+}
+
+.checklist-card {
+  background: #fffdf7;
+}
+
+.checklist-card > summary {
+  color: var(--gold);
+}
+
+.quick-map {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px;
+  margin: 2px 0 8px;
+}
+
+.quick-map a {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px;
+  background: #ffffff;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.quick-map a:hover {
+  border-color: rgba(15, 118, 110, 0.32);
+  background: #f2fbfa;
+}
+
+.back-top {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 44px;
+  height: 44px;
+  display: none;
+  border: 0;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+
+.back-top.is-visible {
+  display: grid;
+  place-items: center;
+}
+
+mark {
+  border-radius: 4px;
+  padding: 0 3px;
+  background: #fff3bf;
+}
+
+@media (max-width: 980px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: relative;
+    height: auto;
+    max-height: none;
+  }
+
+  .toc {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .toc .toc-h2 {
+    padding-left: 10px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .tool-strip {
+    top: 0;
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 620px) {
+  .main-content {
+    padding: 18px 12px 64px;
+  }
+
+  .hero,
+  .section-head,
+  .section-body {
+    padding: 20px;
+  }
+
+  .hero h1 {
+    font-size: 2.05rem;
+  }
+
+  .chip,
+  .ghost-button {
+    width: 100%;
+  }
+
+  .view-switch {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Mục lục tài liệu">
+        <div class="brand-block">
+          <span class="eyebrow">Training Guide</span>
+          <strong>SEO, AEO, GEO & Zero Click</strong>
+        </div>
+
+        <label class="search-box" for="docSearch">
+          <span>Tìm nhanh</span>
+          <input id="docSearch" type="search" placeholder="Intent, EEAT, CTA..." autocomplete="off" />
+        </label>
+
+        <div class="progress-wrap" aria-label="Tiến độ đọc">
+          <div class="progress-track">
+            <div class="progress-bar" id="readProgress"></div>
+          </div>
+          <span id="progressText">0%</span>
+        </div>
+
+        <nav id="toc" class="toc"></nav>
+      </aside>
+
+      <main class="main-content">
+        <section class="hero" id="top">
+          <div class="hero-copy">
+            <span class="eyebrow">Content Team Enablement</span>
+            <h1 id="heroTitle">Training Content Blog</h1>
+            <p id="heroSubtitle">Đang tải tài liệu Markdown...</p>
+          </div>
+          <div class="hero-panel" aria-label="Tóm tắt tài liệu">
+            <div>
+              <span class="metric" id="moduleCount">0</span>
+              <span>modules</span>
+            </div>
+            <div>
+              <span class="metric" id="tableCount">0</span>
+              <span>bảng / framework</span>
+            </div>
+            <div>
+              <span class="metric" id="checklistCount">0</span>
+              <span>checklists</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="tool-strip" aria-label="Công cụ đọc tài liệu">
+          <div class="view-switch" role="group" aria-label="Lọc nội dung">
+            <button class="chip active" data-filter="all">Tất cả</button>
+            <button class="chip" data-filter="part">Phần chính</button>
+            <button class="chip" data-filter="module">Module</button>
+            <button class="chip" data-filter="checklist">Checklist</button>
+          </div>
+          <button class="ghost-button" id="expandAll" type="button">Mở tất cả ví dụ</button>
+        </section>
+
+        <div id="status" class="status-card">Đang đọc file Markdown...</div>
+        <div id="content" class="training-content" aria-live="polite"></div>
+      </main>
+    </div>
+
+    <button class="back-top" id="backTop" type="button" aria-label="Lên đầu trang">↑</button>
+    <script>
+const SOURCE_MD = "guide_content_seo_aeo_geo_zero_click.md";
+const EMBEDDED_MARKDOWN = "# GUIDE TỔNG\n# Content Blog thích nghi với SEO, AEO, GEO \u0026 Zero Click\n\n\u003e **Mục tiêu tài liệu:** Training đội content creative chuyển từ cách viết blog SEO truyền thống sang cách xây dựng nội dung có khả năng được AI/search engine hiểu, trích xuất, trích dẫn và vẫn tạo giá trị thật cho người đọc.\n\n---\n\n## Case study xuyên suốt\n\n| Hạng mục | Nội dung |\n|---|---|\n| Base article | **Best Father’s Day Quotes** |\n| Chủ đề | Tổng hợp và hướng dẫn chọn câu quote cho Ngày của Cha |\n| User need chính | Tìm câu quote phù hợp để dùng ngay cho card, caption, tin nhắn, bài đăng social hoặc quà tặng cá nhân hóa |\n| Mục tiêu content | Không chỉ liệt kê quote, mà giúp user chọn đúng quote theo cảm xúc, người nhận và nơi sử dụng |\n\n---\n\n# PHẦN 1. VẤN ĐỀ / THỰC TRẠNG\n\n## 1. Vì sao chúng ta phải thay đổi?\n\nHành vi tìm kiếm của người dùng đã thay đổi mạnh. Người dùng không còn muốn mở nhiều bài viết, đọc dài và tự tổng hợp. Họ muốn nhận được **câu trả lời nhanh, đúng ngữ cảnh, dễ áp dụng ngay**.\n\nTrước đây, content blog chủ yếu cạnh tranh để được Google xếp hạng và kéo click. Hiện nay, Google, AI Overview, ChatGPT, Perplexity, Gemini và các answer engine có xu hướng **đọc nội dung, tổng hợp lại và trả lời trực tiếp cho người dùng**.\n\n\u003e **Vấn đề cốt lõi:**  \n\u003e Nếu content không được AI/search engine chọn làm nguồn trả lời, content gần như biến mất khỏi hành trình tìm kiếm của người dùng.\n\n---\n\n## 2. Người dùng đã thay đổi cách tìm kiếm như thế nào?\n\n### Trước đây\n\nNgười dùng thường search keyword ngắn:\n\n- Father’s Day quotes\n- Best dad quotes\n- Funny Father’s Day quotes\n\nSau đó họ click nhiều bài, đọc, chọn câu phù hợp.\n\n### Hiện nay\n\nNgười dùng tìm kiếm cụ thể hơn:\n\n- Best Father’s Day quotes for a loving dad\n- Short Father’s Day quotes for Instagram caption\n- Funny Father’s Day quotes from daughter\n- Emotional Father’s Day message for a dad who passed away\n- What to write in a Father’s Day card\n- Father’s Day quote for a personalized shirt or mug\n\n\u003e **Insight:**  \n\u003e Người dùng không chỉ tìm “quote”. Họ tìm **quote phù hợp với tình huống sử dụng**.\n\n---\n\n## 3. Công cụ tìm kiếm đã thay đổi cách đưa kết quả như thế nào?\n\nSearch engine không còn chỉ là nơi hiển thị danh sách link. Nó đang chuyển thành **answer engine**.\n\n| Trước đây | Hiện nay |\n|---|---|\n| Google hiển thị 10 blue links | AI Overview có thể trả lời ngay trên SERP |\n| Website thắng khi rank cao | Website thắng khi được chọn làm nguồn trả lời |\n| User click để đọc câu trả lời | User có thể nhận câu trả lời mà không click |\n| Cạnh tranh bằng page ranking | Cạnh tranh bằng answer selection |\n\n\u003e **Mục tiêu mới:**  \n\u003e Không chỉ rank bài viết, mà phải được chọn làm nguồn cho câu trả lời.\n\n---\n\n## 4. Tiêu chí “content phù hợp” đã thay đổi\n\nContent phù hợp trong bối cảnh mới không chỉ là bài dài, có keyword và đầy đủ thông tin. Nội dung phù hợp phải có khả năng:\n\n1. Trả lời trực tiếp câu hỏi của người dùng.\n2. Rõ ràng, dễ hiểu, ít mơ hồ.\n3. Có cấu trúc để AI dễ bóc tách.\n4. Mỗi đoạn có thể đứng độc lập.\n5. Đúng intent và đúng ngữ cảnh sử dụng.\n6. Có đủ chiều sâu để người đọc thật thấy giá trị.\n7. Có dấu hiệu tin cậy: kinh nghiệm, logic, ví dụ, dữ liệu hoặc insight.\n\n\u003e **Định nghĩa mới về content tốt:**  \n\u003e Content tốt không còn là “bài viết hay”, mà là **hệ thống câu trả lời có cấu trúc, có thể được AI hiểu, trích xuất và người đọc áp dụng ngay**.\n\n---\n\n## 5. Vì sao content kiểu cũ dễ thất bại?\n\nContent kiểu cũ thường gặp các lỗi sau:\n\n- Intro dài, không trả lời ngay.\n- H2 chung chung như “Introduction”, “Overview”, “Conclusion”.\n- Viết theo keyword, không theo câu hỏi.\n- Một đoạn chứa quá nhiều ý.\n- Thiếu ví dụ theo từng tình huống cụ thể.\n- Nội dung dài nhưng không có information gain.\n- CTA đặt cuối bài, không gắn với intent.\n\n### Ví dụ với “Best Father’s Day Quotes”\n\nNếu bài chỉ có các section:\n\n- 100 Best Father’s Day Quotes\n- Happy Father’s Day Quotes\n- Funny Father’s Day Quotes\n- Inspirational Father’s Day Quotes\n\nthì bài có thể vẫn hữu ích, nhưng rất dễ generic. AI có thể lấy quote từ nhiều nguồn khác, còn người dùng không có lý do mạnh để click hoặc ở lại.\n\n\u003e **Cách tiếp cận mới:**  \n\u003e Bài cần chuyển từ “danh sách quotes” thành “hệ thống quote theo intent sử dụng”.\n\n---\n\n# PHẦN 2. GIẢI PHÁP TỔNG QUAN\n\n## 1. Thay đổi tư duy content\n\nTeam content cần chuyển từ:\n\n\u003e Viết bài blog để lên top.\n\nsang:\n\n\u003e Thiết kế câu trả lời có cấu trúc để được AI chọn, người dùng tin và có thể hành động.\n\n---\n\n## 2. Các yếu tố cần áp dụng ngay\n\n### 2.1. Answer-first\n\nMỗi bài và mỗi section phải trả lời ngay câu hỏi chính trước khi giải thích.\n\n**Không nên mở đầu kiểu:**\n\n\u003e Father’s Day is a special occasion celebrated around the world...\n\n**Nên mở đầu kiểu:**\n\n\u003e The best Father’s Day quotes are short, heartfelt lines that express gratitude, love, and respect for a father. Choose the quote based on how you plan to use it: a card, Instagram caption, gift message, or personal tribute.\n\n---\n\n### 2.2. Intent-based structure\n\nKhông xây bài theo keyword đơn lẻ. Xây bài theo nhóm nhu cầu:\n\n- Người cần quote ngắn.\n- Người cần quote cảm động.\n- Người cần quote hài hước.\n- Người cần quote từ con gái.\n- Người cần quote từ con trai.\n- Người cần quote cho người cha đã mất.\n- Người cần quote để in lên quà tặng.\n\n---\n\n### 2.3. Extractable content\n\nMỗi đoạn nên có khả năng bị trích xuất độc lập.\n\nMột đoạn tốt cần:\n\n- Có câu trả lời chính.\n- Không phụ thuộc đoạn trước.\n- Có ngữ cảnh đủ rõ.\n- Không quá dài.\n\n---\n\n### 2.4. Content layering\n\nMỗi phần nên có 2 lớp:\n\n| Layer | Vai trò | Đặc điểm |\n|---|---|---|\n| Answer Layer | Để AI/user hiểu nhanh | Ngắn, rõ, trả lời trực tiếp |\n| Value Layer | Để giữ người đọc | Insight, ví dụ, data, hướng dẫn áp dụng |\n\n---\n\n### 2.5. Information Gain\n\nKhông cần nhồi thông tin mới vào mọi đoạn. Nhưng bài cần có ít nhất một lớp giá trị khác biệt:\n\n- Cách chọn quote theo người nhận.\n- Cách chọn quote theo kênh sử dụng: card, caption, mug, shirt, blanket.\n- Dữ liệu nội bộ: nhóm quote nào được dùng nhiều nhất trong đơn hàng Father’s Day.\n- Insight từ review khách hàng.\n- Framework chọn quote theo cảm xúc: heartfelt, funny, proud, memorial, simple.\n\n---\n\n### 2.6. Entity, thuộc tính và mối quan hệ\n\nEntity không nên được hiểu là “nhồi thực thể”. Team cần dùng entity để giúp AI hiểu chủ đề sâu hơn.\n\n| Nhóm | Ví dụ |\n|---|---|\n| Entity chính | Father’s Day, dad, daughter, son, husband, grandpa |\n| Format | quote, message, caption, card wording |\n| Use case | gift, mug, shirt, blanket, poster |\n| Emotion | love, gratitude, respect, memory, humor |\n| Relationship | quote dành cho ai, dùng ở đâu, mang cảm xúc gì |\n\n---\n\n### 2.7. EEAT\n\nEEAT không nhất thiết phải viết dài hoặc tự xưng là chuyên gia. EEAT nên được thể hiện qua:\n\n- Cách phân loại quote hợp lý.\n- Gợi ý theo tình huống thật.\n- Ví dụ cụ thể.\n- Cảnh báo quote nào không nên dùng trong ngữ cảnh nhạy cảm.\n- Dữ liệu hoặc insight từ khách hàng nếu có.\n\n---\n\n### 2.8. CTA theo context\n\nCTA không nên spam cuối bài. CTA nên xuất hiện đúng lúc người dùng có nhu cầu tiếp theo.\n\n**Ví dụ sau phần “Father’s Day quotes for personalized gifts”:**\n\n\u003e If you want the quote to feel more personal, choose a short line that can fit naturally on a mug, shirt, blanket, or photo gift.\n\nSau đó mới dẫn sang sản phẩm liên quan.\n\n---\n\n# PHẦN 3. GUIDE CHI TIẾT THEO MODULE\n\n---\n\n# MODULE 1. CONTENT MINDSET\n\n## Mục tiêu\n\nGiúp team hiểu rằng content blog hiện nay không chỉ để người dùng đọc từ đầu đến cuối. Content còn được AI đọc, tách đoạn, tổng hợp và sử dụng làm câu trả lời.\n\n## Tư duy cần thay đổi\n\n| Tư duy cũ | Tư duy mới |\n|---|---|\n| Viết bài dài để đủ SEO | Viết answer assets |\n| Tập trung keyword | Tập trung intent |\n| Intro dẫn dắt dài | Trả lời ngay từ đầu |\n| Bài viết là đơn vị chính | Section/paragraph là đơn vị chính |\n| User đọc từ đầu đến cuối | AI scan, extract, summarize |\n\n## Framework: Answer Asset Mindset\n\nKhi viết, writer phải tự hỏi:\n\n- Người dùng đang hỏi gì?\n- Đoạn này trả lời câu hỏi nào?\n- Nếu AI lấy riêng đoạn này, nó có đủ nghĩa không?\n- Đoạn này có giúp người đọc hành động không?\n- Đoạn này có gì khác generic content ngoài kia không?\n\n## Ví dụ với “Best Father’s Day Quotes”\n\n**Cách nghĩ cũ:**\n\n\u003e Viết một bài list 100 câu quote về Father’s Day.\n\n**Cách nghĩ mới:**\n\n\u003e Thiết kế một bài giúp người dùng chọn đúng quote cho từng người cha, từng cảm xúc và từng nơi sử dụng.\n\n## Output kỳ vọng\n\nBài không chỉ có list quote, mà phải có các phần như:\n\n- Best short Father’s Day quotes\n- Heartfelt Father’s Day quotes\n- Funny Father’s Day quotes\n- Father’s Day quotes from daughter\n- Father’s Day quotes from son\n- Father’s Day quotes for a husband\n- Father’s Day quotes for grandpa\n- Father’s Day quotes for a dad in heaven\n- Father’s Day quotes for cards\n- Father’s Day quotes for personalized gifts\n\n## Checklist Module 1\n\n- [ ] Bài đang viết cho user thật hay chỉ viết cho keyword?\n- [ ] Topic đã được biến thành các câu hỏi cụ thể chưa?\n- [ ] Mỗi section có một mục tiêu rõ không?\n- [ ] Mỗi đoạn có thể đứng độc lập không?\n- [ ] Có phần nào viết chỉ để đủ chữ không?\n- [ ] Nếu AI lấy một đoạn, đoạn đó có đủ nghĩa không?\n\n---\n\n# MODULE 2. INTENT MAPPING\n\n## Mục tiêu\n\nBiến keyword thành bản đồ nhu cầu tìm kiếm thật của người dùng.\n\n## Vì sao quan trọng?\n\nKeyword “Best Father’s Day Quotes” nghe có vẻ đơn giản, nhưng bên trong có nhiều intent nhỏ. Nếu không map intent, bài sẽ chỉ là một danh sách quote chung chung.\n\n## Framework: Topic → Intent → Question → Content Block\n\n### Bước 1. Xác định topic chính\n\n**Topic:** Best Father’s Day Quotes\n\n### Bước 2. Xác định các intent chính\n\n| Intent | Người dùng cần gì? | Ví dụ câu hỏi |\n|---|---|---|\n| Definition | Hiểu nhanh loại quote phù hợp | What makes a good Father’s Day quote? |\n| Usage / Context | Dùng quote trong tình huống nào | What should I write in a Father’s Day card? |\n| Emotional | Tìm quote theo cảm xúc | What is a heartfelt Father’s Day quote? |\n| Relationship | Tìm quote theo người gửi/người nhận | Best Father’s Day quotes from daughter |\n| Format | Tìm quote theo kênh dùng | Short Father’s Day captions for Instagram |\n| Problem-solving | Không biết viết gì | What can I say instead of Happy Father’s Day? |\n| Commercial support | Dùng quote cho quà tặng | Father’s Day quotes for personalized gifts |\n\n## Cách áp dụng\n\n**Brief chưa tốt:**\n\n\u003e Keyword: Best Father’s Day Quotes  \n\u003e Word count: 1500 words\n\n**Brief đúng:**\n\n\u003e Topic: Best Father’s Day Quotes  \n\u003e Main intent: Người dùng muốn tìm và chọn quote phù hợp để dùng ngay.  \n\u003e Secondary intents: card, caption, gift message, emotional quote, funny quote, daughter/son quote, memorial quote.  \n\u003e Conversion intent: quote dùng cho personalized gift.\n\n## Lỗi thường gặp\n\n- Chỉ gom quote theo tính từ: best, funny, short, emotional.\n- Không phân loại theo người dùng thật: daughter, son, wife, child, grandchild.\n- Không có phần giúp chọn quote.\n- Không có phần quote dùng cho sản phẩm hoặc quà tặng.\n\n## Checklist Module 2\n\n- [ ] User đang hỏi gì?\n- [ ] Có chia topic thành các intent nhỏ chưa?\n- [ ] Có đủ câu hỏi theo người dùng thật chưa?\n- [ ] Có intent theo cảm xúc không?\n- [ ] Có intent theo người gửi/người nhận không?\n- [ ] Có intent theo nơi sử dụng không?\n- [ ] Có intent hỗ trợ mua/quà tặng không?\n- [ ] Có intent nào bị dư hoặc lệch pain point không?\n\n---\n\n# MODULE 3. CONTENT STRUCTURE FRAMEWORK\n\n## Mục tiêu\n\nTạo cấu trúc bài dễ đọc, dễ scan, dễ được AI extract.\n\n## Nguyên tắc\n\n1. Intro phải trả lời ngay.\n2. H2 nên là câu hỏi hoặc nhu cầu cụ thể.\n3. Mỗi H2 xử lý một intent.\n4. Mỗi section có answer block trước, list quote sau.\n5. Kết bài phải giúp chọn hành động tiếp theo.\n\n## Framework cấu trúc chuẩn\n\n### H1 đề xuất\n\n\u003e Best Father’s Day Quotes for Cards, Captions, and Personalized Gifts\n\nH1 này tốt hơn “Best Father’s Day Quotes” vì nó mở rõ ngữ cảnh sử dụng.\n\n### Intro answer block\n\n\u003e The best Father’s Day quotes are short, meaningful lines that express love, gratitude, respect, or humor. To choose the right quote, match it with your relationship, emotional tone, and where you plan to use it, such as a card, Instagram caption, or personalized gift.\n\n### Suggested H2 structure\n\n1. What Makes a Good Father’s Day Quote?\n2. Best Short Father’s Day Quotes\n3. Heartfelt Father’s Day Quotes\n4. Funny Father’s Day Quotes\n5. Father’s Day Quotes from Daughter\n6. Father’s Day Quotes from Son\n7. Father’s Day Quotes for Husband\n8. Father’s Day Quotes for Grandpa\n9. Father’s Day Quotes for a Dad in Heaven\n10. Father’s Day Quotes for Cards\n11. Father’s Day Quotes for Instagram Captions\n12. Father’s Day Quotes for Personalized Gifts\n13. How to Choose the Right Father’s Day Quote\n14. Father’s Day Quotes FAQ\n\n## Lỗi thường gặp\n\n- Đưa list quote ngay nhưng không có hướng dẫn chọn.\n- Section quá chung, không khớp intent cụ thể.\n- Không có phần cho card/caption/gift.\n- Không có FAQ xử lý long-tail questions.\n\n## Checklist Module 3\n\n- [ ] H1 có rõ topic không?\n- [ ] H1 có thêm context sử dụng không?\n- [ ] Intro trả lời ngay chưa?\n- [ ] Mỗi H2 có gắn với một intent không?\n- [ ] H2 có giống câu hỏi user search không?\n- [ ] Mỗi section có một mục tiêu rõ không?\n- [ ] Có section giúp user chọn/hành động không?\n- [ ] Có section nào chung chung cần xóa/gộp không?\n\n---\n\n# MODULE 4. ANSWER WRITING FRAMEWORK\n\n## Mục tiêu\n\nChuẩn hóa cách viết từng đoạn để AI dễ chọn và người dùng dễ hiểu.\n\n## Framework: Direct Answer → Context → Example → Action\n\nMỗi section nên bắt đầu bằng một answer block gồm 3–5 câu hoặc 1 đoạn ngắn + bullet.\n\n| Thành phần | Vai trò |\n|---|---|\n| Direct Answer | Trả lời ngay câu hỏi |\n| Context | Nói rõ khi nào áp dụng |\n| Example | Đưa ví dụ cụ thể |\n| Action | Gợi ý người đọc nên làm gì tiếp |\n\n## Ví dụ section\n\n### H2: What Makes a Good Father’s Day Quote?\n\n**Answer block chuẩn:**\n\n\u003e A good Father’s Day quote should match your relationship with your dad, the emotion you want to express, and the place where the quote will appear. Short quotes work best for captions and gifts, while longer heartfelt messages are better for cards or personal letters.\n\n**Mở rộng:**\n\n- Use a short quote for mugs, shirts, captions, or photo gifts.\n- Use a heartfelt quote for cards, letters, or tribute posts.\n- Use a funny quote only when it matches your dad’s personality.\n- Avoid overly generic quotes if the message is meant to feel personal.\n\n## Ví dụ chưa tốt\n\n\u003e Father’s Day is a meaningful occasion to celebrate dads around the world. Many people choose quotes because quotes are a great way to express emotion and show appreciation.\n\n**Vấn đề:**\n\n- Không trả lời rõ “what makes a good quote”.\n- Nói chung chung.\n- Không có tiêu chí chọn.\n\n## Checklist Module 4\n\n- [ ] Câu đầu đã trả lời thẳng chưa?\n- [ ] Đoạn này trả lời một câu hỏi cụ thể không?\n- [ ] Có nói rõ khi nào áp dụng không?\n- [ ] Có ví dụ/tiêu chí chọn không?\n- [ ] Có quá 4–5 câu không?\n- [ ] Có câu nào vòng vo không?\n- [ ] Tách riêng đoạn này vẫn hiểu không?\n- [ ] AI có thể lấy đoạn này làm câu trả lời không?\n\n---\n\n# MODULE 5. CONTENT LAYERING\n\n## Mục tiêu\n\nGiải quyết mâu thuẫn: content phải ngắn để AI chọn, nhưng cũng phải đủ sâu để người đọc thấy giá trị.\n\n## Framework: Layer 1 + Layer 2\n\n| Layer | Dành cho | Đặc điểm |\n|---|---|---|\n| Layer 1: Answer Layer | AI/search engine và user muốn câu trả lời nhanh | 2–4 câu, trực tiếp, extractable |\n| Layer 2: Value Layer | Người đọc thật sau khi đã click | Insight, ví dụ, so sánh, dữ liệu, hướng dẫn áp dụng |\n\n## Ví dụ\n\n### H2: Father’s Day Quotes for Personalized Gifts\n\n**Layer 1:**\n\n\u003e The best Father’s Day quotes for personalized gifts are short, clear, and emotionally specific. A quote for a mug, shirt, blanket, or photo frame should be easy to read at a glance and meaningful even without a long message around it.\n\n**Layer 2:**\n\n- For mugs: use short and warm quotes.\n- For shirts: funny or proud dad quotes work better.\n- For blankets: emotional family quotes feel more suitable.\n- For photo frames: choose quotes that mention memory, gratitude, or family.\n\n## Information Gain Layer có thể thêm\n\n\u003e Based on internal product data, add a note such as: “For Father’s Day gifts, short emotional quotes tend to work better on mugs and photo gifts, while funny quotes are more suitable for shirts.”\n\nNếu chưa có dữ liệu thật, dùng placeholder:\n\n\u003e [Insert internal customer-review insight about which quote styles are most often chosen for Father’s Day personalized gifts.]\n\n## Checklist Module 5\n\n- [ ] Section có answer layer chưa?\n- [ ] Answer layer có đứng đầu không?\n- [ ] Answer layer có ngắn và rõ không?\n- [ ] Value layer có thêm insight thật không?\n- [ ] Có ví dụ, so sánh hoặc hướng dẫn áp dụng không?\n- [ ] Có nhồi data/EEAT quá sớm không?\n- [ ] Sau section này user biết làm gì tiếp không?\n- [ ] Layer 2 có phục vụ intent không?\n\n---\n\n# MODULE 6. FORMATTING FOR EXTRACTABILITY\n\n## Mục tiêu\n\nLàm nội dung dễ được AI đọc, hiểu và trích xuất.\n\n## Các format cần dùng\n\n| Format | Khi dùng | Mục đích |\n|---|---|---|\n| Answer block | Đầu bài, đầu section | Trả lời nhanh |\n| Bullet list | Khi có nhiều ý nhỏ | Dễ scan, dễ extract |\n| Table | Khi so sánh/chọn lựa | Hỗ trợ quyết định |\n| FAQ | Khi cover câu hỏi phụ | Long-tail + answer extraction |\n| Short paragraph | Toàn bài | Giảm cognitive load |\n\n## Ví dụ bảng tốt\n\n| Use case | Best quote type | Why it works |\n|---|---|---|\n| Father’s Day card | Heartfelt quote | Có đủ không gian để thể hiện cảm xúc |\n| Instagram caption | Short quote | Dễ đọc, dễ share |\n| Mug | Simple quote | Dễ nhìn trên diện tích nhỏ |\n| T-shirt | Funny quote | Tạo cảm giác cá nhân, vui vẻ |\n| Memorial post | Emotional tribute quote | Phù hợp sắc thái tưởng nhớ |\n\n## Lỗi thường gặp\n\n- Viết paragraph dài liên tục.\n- Dùng heading không rõ ý.\n- Không có bảng dù nội dung cần so sánh.\n- FAQ trả lời quá dài.\n\n## Checklist Module 6\n\n- [ ] Có answer block ở đầu bài không?\n- [ ] Có answer block ở đầu section chính không?\n- [ ] Có bullet khi liệt kê nhiều ý không?\n- [ ] Có bảng khi cần so sánh/chọn lựa không?\n- [ ] Paragraph có quá dài không?\n- [ ] Heading có rõ nghĩa không?\n- [ ] FAQ có trả lời ngắn không?\n- [ ] User đọc lướt có hiểu ý chính không?\n\n---\n\n# MODULE 7. CONTEXT EXPANSION\n\n## Mục tiêu\n\nMở rộng nội dung đúng hướng mà không làm bài lan man.\n\n## Nguyên tắc\n\nKhông mở rộng bằng cách viết thêm cho dài. Chỉ mở rộng bằng cách trả lời câu hỏi tiếp theo mà user có khả năng hỏi.\n\n## Framework: Main Question → Follow-up Questions\n\n**Main question:**\n\n\u003e What are the best Father’s Day quotes?\n\n**Follow-up hợp lý:**\n\n- Which quote should I use for a card?\n- Which quote is best for Instagram?\n- What should a daughter write to her dad?\n- What should a son write to his dad?\n- What quote works for a dad who passed away?\n- What quote fits a personalized gift?\n\n## Ví dụ mở rộng đúng\n\n### Main section: Best Short Father’s Day Quotes\n\nMở rộng hợp lý:\n\n- Best short quotes for cards\n- Best short quotes for captions\n- Best short quotes for gifts\n- When not to use a short quote\n\n## Ví dụ mở rộng sai\n\n- Lịch sử Ngày của Cha dài 800 chữ.\n- Tiểu sử các tác giả quote nổi tiếng.\n- Danh sách quote không liên quan đến Father’s Day.\n\nNhững phần này có thể hữu ích trong một số bài khác, nhưng với intent “Best Father’s Day Quotes”, chúng dễ làm lệch pain point.\n\n## Checklist Module 7\n\n- [ ] Phần mở rộng có trả lời câu hỏi tiếp theo không?\n- [ ] Có bám đúng pain point không?\n- [ ] Có giúp user chọn/làm tốt hơn không?\n- [ ] Có phần nào chỉ để kéo dài bài không?\n- [ ] Có phần nào lệch intent chính không?\n- [ ] Có cần xóa phần lịch sử/định nghĩa dư không?\n- [ ] Mỗi phần mở rộng có lý do tồn tại không?\n\n---\n\n# MODULE 8. INFORMATION GAIN\n\n## Mục tiêu\n\nLàm bài khác biệt so với content generic mà không phá directness.\n\n## Information Gain là gì?\n\nInformation Gain là phần giá trị mới hoặc góc nhìn riêng giúp bài không chỉ lặp lại những gì các bài khác đã nói.\n\nVới bài quote, information gain không nhất thiết phải là dữ liệu phức tạp. Nó có thể là:\n\n- Cách phân loại quote tốt hơn.\n- Framework chọn quote.\n- Insight từ khách hàng.\n- Ví dụ ứng dụng quote vào card/caption/gift.\n- Bảng chọn quote theo mục đích.\n\n## Framework: Add Value After Answer\n\nKhông đưa information gain trước câu trả lời chính. Hãy đặt sau answer block.\n\n**Answer:**\n\n\u003e Short Father’s Day quotes work best for captions, mugs, shirts, and small personalized gifts because they are easy to read and remember.\n\n**Information Gain:**\n\n\u003e For personalized products, a quote under 8–12 words usually works better because it remains readable on smaller print areas such as mugs, ornaments, or chest-print shirts.\n\n## Nguồn information gain nên dùng\n\n- Internal sales data.\n- Customer reviews.\n- Customer support questions.\n- Product personalization constraints.\n- Brand experience.\n- Original framework.\n\n## Placeholder nếu chưa có dữ liệu\n\n- [Insert top 5 Father’s Day gift products by order volume]\n- [Insert most common quote length used on personalized products]\n- [Insert customer review insight about emotional gift messages]\n- [Insert support-ticket insight about what customers ask before customizing gifts]\n\n## Checklist Module 8\n\n- [ ] Bài có insight khác generic không?\n- [ ] Insight có giúp user quyết định/tác vụ tốt hơn không?\n- [ ] Insight có nằm sau answer layer không?\n- [ ] Có dữ liệu thật hoặc placeholder rõ không?\n- [ ] Có tránh bịa số liệu không?\n- [ ] Có framework/bảng riêng không?\n- [ ] Insight có liên quan trực tiếp topic không?\n- [ ] Có bỏ được phần insight nào dư không?\n\n---\n\n# MODULE 9. ENTITY, ATTRIBUTES \u0026 RELATIONSHIPS\n\n## Mục tiêu\n\nGiúp AI hiểu nội dung sâu hơn mà không cần nhồi từ khóa.\n\n## Entity trong bài này\n\n| Nhóm | Ví dụ |\n|---|---|\n| Người nhận | father, dad, stepdad, grandpa, husband |\n| Người gửi | daughter, son, wife, child, family |\n| Dịp | Father’s Day |\n| Nội dung | quote, message, caption, card wording |\n| Sản phẩm | mug, shirt, blanket, photo frame |\n| Cảm xúc | love, gratitude, memory, humor, respect |\n\n## Attributes\n\nThuộc tính mô tả quote:\n\n- Short\n- Funny\n- Heartfelt\n- Emotional\n- Inspirational\n- Simple\n- Memorial\n- Religious\n- Personalized\n- From daughter\n- From son\n\n## Relationships\n\nMối quan hệ giúp AI hiểu intent:\n\n- Quote dành cho ai?\n- Quote đến từ ai?\n- Quote dùng ở đâu?\n- Quote thể hiện cảm xúc gì?\n- Quote phù hợp với định dạng nào?\n- Quote có phù hợp để in lên quà tặng không?\n\n## Ví dụ áp dụng đúng\n\n**Chưa tốt:**\n\n\u003e Here are emotional Father’s Day quotes.\n\n**Tốt hơn:**\n\n\u003e Emotional Father’s Day quotes work best for cards, tribute posts, and personalized photo gifts because they give enough space to express gratitude, memory, and love.\n\nĐoạn tốt hơn có đủ entity + relationship:\n\n- Emotional Father’s Day quotes\n- cards\n- tribute posts\n- personalized photo gifts\n- gratitude\n- memory\n- love\n\n## Checklist Module 9\n\n- [ ] Entity chính đã xuất hiện tự nhiên chưa?\n- [ ] Có nói rõ quote dành cho ai không?\n- [ ] Có nói rõ quote dùng ở đâu không?\n- [ ] Có nói rõ sắc thái cảm xúc không?\n- [ ] Có liên kết quote với card/caption/gift không?\n- [ ] Có nhồi entity vô nghĩa không?\n- [ ] Entity có giúp user hiểu/chọn tốt hơn không?\n- [ ] Có thiếu entity quan trọng nào không?\n\n---\n\n# MODULE 10. EEAT\n\n## Mục tiêu\n\nTạo độ tin cậy mà không làm bài dài dòng hoặc khoe khoang.\n\n## Cách hiểu đúng\n\nEEAT không phải là viết:\n\n\u003e We are experts in Father’s Day gifts.\n\nEEAT nên thể hiện qua:\n\n- Cách hướng dẫn chọn quote hợp lý.\n- Kinh nghiệm thực tế về personalized gifts.\n- Ví dụ rõ ràng.\n- Dữ liệu nội bộ nếu có.\n- Cảnh báo khi quote không phù hợp.\n\n## Framework: Show Expertise Through Helpfulness\n\n### Ví dụ EEAT tốt\n\n\u003e For a Father’s Day mug, avoid long quotes because small print areas can make the message harder to read. A short line such as “Dad, you are my first hero” is easier to personalize and works better visually.\n\n**Vì sao tốt:**\n\n- Có kinh nghiệm thực tế.\n- Có lý do rõ.\n- Có ví dụ áp dụng.\n- Không cần tự xưng chuyên gia.\n\n## EEAT nên đặt ở đâu?\n\n- Trong phần hướng dẫn chọn quote.\n- Trong phần personalized gifts.\n- Trong bảng use case.\n- Trong FAQ.\n- Trong author note nếu cần.\n\n## Checklist Module 10\n\n- [ ] Bài có thể hiện kinh nghiệm thực tế không?\n- [ ] Có ví dụ cụ thể không?\n- [ ] Có tiêu chí chọn rõ không?\n- [ ] Có cảnh báo ngữ cảnh nhạy cảm không?\n- [ ] Có dữ liệu/insight nếu có không?\n- [ ] Có tránh tự xưng chuyên gia quá đà không?\n- [ ] Có claim nào thiếu cơ sở không?\n- [ ] Người đọc có thấy bài đáng tin không?\n\n---\n\n# MODULE 11. CTA \u0026 CONVERSION PATH\n\n## Mục tiêu\n\nBiến blog thành điểm hỗ trợ chuyển đổi mà không làm mất tính hữu ích.\n\n## Nguyên tắc\n\nCTA phải là bước tiếp theo tự nhiên sau khi người đọc đã có câu trả lời.\n\n## CTA sai\n\n\u003e Buy our Father’s Day gifts now!\n\n**Vấn đề:**\n\n- Quá sales.\n- Không gắn với nội dung vừa đọc.\n- Làm giảm trust.\n\n## CTA đúng\n\nSau phần “Father’s Day Quotes for Personalized Gifts”:\n\n\u003e Once you choose a short quote, you can use it on a personalized mug, shirt, blanket, or photo gift to make the message feel more personal.\n\nSau đó có thể dẫn link:\n\n- Personalized Father’s Day mugs\n- Custom dad shirts\n- Father’s Day photo blankets\n- Personalized family gifts\n\n## Framework: Intent → CTA\n\n| Intent | CTA phù hợp |\n|---|---|\n| Tìm quote cho card | Gợi ý card message template |\n| Tìm quote cho caption | Gợi ý short caption list |\n| Tìm quote cho quà tặng | Gợi ý sản phẩm cá nhân hóa |\n| Tìm quote cảm động | Gợi ý photo gift / memory gift |\n| Tìm quote hài hước | Gợi ý funny dad shirt / mug |\n\n## Checklist Module 11\n\n- [ ] CTA có gắn với section không?\n- [ ] CTA có đúng nhu cầu vừa phát sinh không?\n- [ ] CTA có giúp user làm bước tiếp theo không?\n- [ ] CTA có quá sales không?\n- [ ] CTA có tự nhiên trong mạch đọc không?\n- [ ] Có link đúng category/product không?\n- [ ] CTA có đặt ở điểm intent cao không?\n- [ ] Có CTA nào dư cần bỏ không?\n\n---\n\n# MODULE 12. FAQ \u0026 FOLLOW-UP QUESTIONS\n\n## Mục tiêu\n\nCover long-tail intent và tạo thêm các answer block dễ extract.\n\n## Nguyên tắc FAQ\n\nFAQ không phải để nhồi keyword. FAQ dùng để trả lời các câu hỏi phụ mà người dùng thật có thể hỏi.\n\n## FAQ tốt cho bài Best Father’s Day Quotes\n\n### What is the best short Father’s Day quote?\n\nA good short Father’s Day quote is simple, warm, and easy to use in a card, caption, or gift. For example: “Dad, you are my first hero.”\n\n### What should I write in a Father’s Day card?\n\nWrite a short message that thanks your dad for his love, support, and guidance. Add one specific memory or reason why you appreciate him to make the card feel personal.\n\n### What is a good Father’s Day quote from a daughter?\n\nA good Father’s Day quote from a daughter should feel loving, proud, and personal. It can mention protection, guidance, or the bond between a father and daughter.\n\n### What is a good Father’s Day quote for a dad in heaven?\n\nA Father’s Day quote for a dad in heaven should be gentle, respectful, and memory-focused. Avoid overly casual humor unless it reflects your relationship with him.\n\n### What Father’s Day quote works best for a personalized gift?\n\nShort quotes work best for personalized gifts because they are easier to read on mugs, shirts, blankets, and photo frames.\n\n## Checklist Module 12\n\n- [ ] FAQ có phải câu hỏi user thật không?\n- [ ] Câu trả lời có ngắn không?\n- [ ] Câu đầu có trả lời trực tiếp không?\n- [ ] Có FAQ về card/caption/gift không?\n- [ ] Có FAQ theo relationship không?\n- [ ] Có FAQ cho tình huống nhạy cảm không?\n- [ ] FAQ có lặp lại y nguyên phần trên không?\n- [ ] FAQ có thể được AI extract không?\n\n---\n\n# MODULE 13. CONTENT BRIEF TEMPLATE\n\n## Mục tiêu\n\nChuẩn hóa đầu vào cho writer để tránh viết lan man.\n\n## Template brief chuẩn\n\n| Trường | Nội dung mẫu |\n|---|---|\n| Topic | Best Father’s Day Quotes |\n| Main Keyword | best Father’s Day quotes |\n| Primary Intent | Người dùng muốn tìm quote phù hợp để dùng ngay cho Father’s Day |\n| Target Audience | Người đang tìm lời chúc, caption hoặc quote để gửi cho cha, chồng, ông, stepdad hoặc dùng trên quà tặng cá nhân hóa |\n| Content Angle | Không chỉ liệt kê quote. Bài phải giúp người đọc chọn đúng quote theo cảm xúc, mối quan hệ và nơi sử dụng |\n| CTA Requirement | CTA phải gắn với section quà tặng cá nhân hóa, không sales chung chung |\n\n## Secondary intents\n\n- Quote ngắn\n- Quote cảm động\n- Quote hài hước\n- Quote từ con gái\n- Quote từ con trai\n- Quote cho chồng\n- Quote cho ông\n- Quote cho cha đã mất\n- Quote cho card\n- Quote cho caption\n- Quote cho personalized gift\n\n## Required modules\n\n- Answer-first intro\n- Quote categories by intent\n- How to choose the right quote\n- Quote use-case table\n- Personalized gift section\n- FAQ\n\n## Information Gain Requirement\n\nThêm ít nhất một trong các lớp sau:\n\n- Internal customer insight\n- Product-use recommendation\n- Quote selection framework\n- Quote length guidance for personalized gifts\n- Review-based insight\n\n## Checklist Module 13\n\n- [ ] Brief có primary intent rõ không?\n- [ ] Brief có secondary intents không?\n- [ ] Brief có target audience không?\n- [ ] Brief có angle khác generic không?\n- [ ] Brief có yêu cầu answer-first không?\n- [ ] Brief có yêu cầu information gain không?\n- [ ] Brief có CTA context không?\n- [ ] Writer đọc brief có biết phải viết gì không?\n\n---\n\n# MODULE 14. EDITOR QA CHECKLIST\n\n## Mục tiêu\n\nGiúp editor kiểm tra content theo tiêu chí SEO/AEO/GEO mới.\n\n## Checklist tổng trước khi publish\n\n### Intent\n\n- [ ] Bài có trả lời đúng primary intent không?\n- [ ] Có cover đủ secondary intents không?\n- [ ] Có section nào lệch khỏi pain point không?\n\n### Answer-first\n\n- [ ] Intro có trả lời ngay không?\n- [ ] Mỗi H2 có answer block không?\n- [ ] Câu trả lời có rõ trong 2–4 câu đầu không?\n\n### Extractability\n\n- [ ] Mỗi section có thể đứng độc lập không?\n- [ ] Có bullet/table/FAQ không?\n- [ ] Có paragraph quá dài không?\n\n### Information Gain\n\n- [ ] Bài có giá trị khác generic list quote không?\n- [ ] Có framework, insight, ví dụ hoặc data không?\n- [ ] Có tránh bịa dữ liệu không?\n\n### Entity \u0026 Context\n\n- [ ] Có đủ entity chính không?\n- [ ] Có nói rõ quote dùng cho ai, ở đâu, trong tình huống nào không?\n- [ ] Có liên kết quote với card/caption/gift không?\n\n### EEAT\n\n- [ ] Có ví dụ thực tế không?\n- [ ] Có logic chọn quote không?\n- [ ] Có cảnh báo với ngữ cảnh nhạy cảm không?\n\n### CTA\n\n- [ ] CTA có đúng context không?\n- [ ] CTA có giúp người đọc làm bước tiếp theo không?\n- [ ] CTA có tự nhiên không?\n\n---\n\n# PHẦN 4. CHECKLIST THỰC THI THEO MODULE\n\n\u003e **Cách dùng:** Writer dùng checklist này trước khi gửi bài. Editor dùng lại checklist này trước khi duyệt publish.\n\n---\n\n## Checklist Module 1: Content Mindset\n\n- [ ] Bài đang viết cho user thật hay chỉ viết cho keyword?\n- [ ] Topic đã được biến thành các câu hỏi cụ thể chưa?\n- [ ] Mỗi section có một mục tiêu rõ không?\n- [ ] Mỗi đoạn có thể đứng độc lập không?\n- [ ] Có phần nào viết chỉ để đủ chữ không?\n- [ ] Nếu AI lấy một đoạn, đoạn đó có đủ nghĩa không?\n\n---\n\n## Checklist Module 2: Intent Mapping\n\n- [ ] User đang hỏi gì?\n- [ ] Có chia topic thành các intent nhỏ chưa?\n- [ ] Có đủ câu hỏi theo người dùng thật chưa?\n- [ ] Có intent theo cảm xúc không?\n- [ ] Có intent theo người gửi/người nhận không?\n- [ ] Có intent theo nơi sử dụng không?\n- [ ] Có intent hỗ trợ mua/quà tặng không?\n- [ ] Có intent nào bị dư hoặc lệch pain point không?\n\n---\n\n## Checklist Module 3: Content Structure\n\n- [ ] H1 có rõ topic không?\n- [ ] H1 có thêm context sử dụng không?\n- [ ] Intro trả lời ngay chưa?\n- [ ] Mỗi H2 có gắn với một intent không?\n- [ ] H2 có giống câu hỏi user search không?\n- [ ] Mỗi section có một mục tiêu rõ không?\n- [ ] Có section giúp user chọn/hành động không?\n- [ ] Có section nào chung chung cần xóa/gộp không?\n\n---\n\n## Checklist Module 4: Answer Writing\n\n- [ ] Câu đầu đã trả lời thẳng chưa?\n- [ ] Đoạn này trả lời một câu hỏi cụ thể không?\n- [ ] Có nói rõ khi nào áp dụng không?\n- [ ] Có ví dụ/tiêu chí chọn không?\n- [ ] Có quá 4–5 câu không?\n- [ ] Có câu nào vòng vo không?\n- [ ] Tách riêng đoạn này vẫn hiểu không?\n- [ ] AI có thể lấy đoạn này làm câu trả lời không?\n\n---\n\n## Checklist Module 5: Content Layering\n\n- [ ] Section có Answer Layer chưa?\n- [ ] Answer Layer có đứng đầu không?\n- [ ] Answer Layer có ngắn và rõ không?\n- [ ] Value Layer có thêm insight thật không?\n- [ ] Có ví dụ, so sánh hoặc hướng dẫn áp dụng không?\n- [ ] Có nhồi data/EEAT quá sớm không?\n- [ ] Sau section này user biết làm gì tiếp không?\n- [ ] Value Layer có phục vụ intent không?\n\n---\n\n## Checklist Module 6: Formatting for Extractability\n\n- [ ] Có answer block ở đầu bài không?\n- [ ] Có answer block ở đầu section chính không?\n- [ ] Có bullet khi liệt kê nhiều ý không?\n- [ ] Có bảng khi cần so sánh/chọn lựa không?\n- [ ] Paragraph có quá dài không?\n- [ ] Heading có rõ nghĩa không?\n- [ ] FAQ có trả lời ngắn không?\n- [ ] User đọc lướt có hiểu ý chính không?\n\n---\n\n## Checklist Module 7: Context Expansion\n\n- [ ] Phần mở rộng có trả lời câu hỏi tiếp theo không?\n- [ ] Có bám đúng pain point không?\n- [ ] Có giúp user chọn/làm tốt hơn không?\n- [ ] Có phần nào chỉ để kéo dài bài không?\n- [ ] Có phần nào lệch intent chính không?\n- [ ] Có cần xóa phần lịch sử/định nghĩa dư không?\n- [ ] Mỗi phần mở rộng có lý do tồn tại không?\n\n---\n\n## Checklist Module 8: Information Gain\n\n- [ ] Bài có insight khác generic không?\n- [ ] Insight có giúp user quyết định/tác vụ tốt hơn không?\n- [ ] Insight có nằm sau answer layer không?\n- [ ] Có dữ liệu thật hoặc placeholder rõ không?\n- [ ] Có tránh bịa số liệu không?\n- [ ] Có framework/bảng riêng không?\n- [ ] Insight có liên quan trực tiếp topic không?\n- [ ] Có bỏ được phần insight nào dư không?\n\n---\n\n## Checklist Module 9: Entity, Attributes \u0026 Relationships\n\n- [ ] Entity chính đã xuất hiện tự nhiên chưa?\n- [ ] Có nói rõ quote dành cho ai không?\n- [ ] Có nói rõ quote dùng ở đâu không?\n- [ ] Có nói rõ sắc thái cảm xúc không?\n- [ ] Có liên kết quote với card/caption/gift không?\n- [ ] Có nhồi entity vô nghĩa không?\n- [ ] Entity có giúp user hiểu/chọn tốt hơn không?\n- [ ] Có thiếu entity quan trọng nào không?\n\n---\n\n## Checklist Module 10: EEAT\n\n- [ ] Bài có thể hiện kinh nghiệm thực tế không?\n- [ ] Có ví dụ cụ thể không?\n- [ ] Có tiêu chí chọn rõ không?\n- [ ] Có cảnh báo ngữ cảnh nhạy cảm không?\n- [ ] Có dữ liệu/insight nếu có không?\n- [ ] Có tránh tự xưng chuyên gia quá đà không?\n- [ ] Có claim nào thiếu cơ sở không?\n- [ ] Người đọc có thấy bài đáng tin không?\n\n---\n\n## Checklist Module 11: CTA \u0026 Conversion Path\n\n- [ ] CTA có gắn với section không?\n- [ ] CTA có đúng nhu cầu vừa phát sinh không?\n- [ ] CTA có giúp user làm bước tiếp theo không?\n- [ ] CTA có quá sales không?\n- [ ] CTA có tự nhiên trong mạch đọc không?\n- [ ] Có link đúng category/product không?\n- [ ] CTA có đặt ở điểm intent cao không?\n- [ ] Có CTA nào dư cần bỏ không?\n\n---\n\n## Checklist Module 12: FAQ \u0026 Follow-up Questions\n\n- [ ] FAQ có phải câu hỏi user thật không?\n- [ ] Câu trả lời có ngắn không?\n- [ ] Câu đầu có trả lời trực tiếp không?\n- [ ] Có FAQ về card/caption/gift không?\n- [ ] Có FAQ theo relationship không?\n- [ ] Có FAQ cho tình huống nhạy cảm không?\n- [ ] FAQ có lặp lại y nguyên phần trên không?\n- [ ] FAQ có thể được AI extract không?\n\n---\n\n## Checklist Module 13: Content Brief\n\n- [ ] Brief có primary intent rõ không?\n- [ ] Brief có secondary intents không?\n- [ ] Brief có target audience không?\n- [ ] Brief có angle khác generic không?\n- [ ] Brief có yêu cầu answer-first không?\n- [ ] Brief có yêu cầu information gain không?\n- [ ] Brief có CTA context không?\n- [ ] Writer đọc brief có biết phải viết gì không?\n\n---\n\n## Checklist Module 14: Editor QA\n\n- [ ] Bài có trả lời đúng primary intent không?\n- [ ] Có cover đủ secondary intents không?\n- [ ] Intro có trả lời ngay không?\n- [ ] Mỗi H2 có answer block không?\n- [ ] Mỗi section có thể đứng độc lập không?\n- [ ] Có bullet/table/FAQ không?\n- [ ] Có information gain không?\n- [ ] Có tránh bịa dữ liệu không?\n- [ ] Có đủ entity/context chính không?\n- [ ] Có ví dụ thực tế không?\n- [ ] CTA có đúng context không?\n- [ ] Bài có thể publish chưa?\n\n---\n\n# PHẦN 5. FRAMEWORK ÁP DỤNG NHANH CHO “BEST FATHER’S DAY QUOTES”\n\n## 1. Recommended H1\n\n\u003e Best Father’s Day Quotes for Cards, Captions, and Personalized Gifts\n\n## 2. Meta Description\n\n\u003e Find the best Father’s Day quotes for cards, captions, daughters, sons, husbands, grandpas, and personalized gifts.\n\n## 3. Opening Answer Block\n\n\u003e The best Father’s Day quotes are short, meaningful lines that express love, gratitude, humor, or remembrance. To choose the right quote, match it with your relationship, the emotional tone, and where you plan to use it, such as a card, Instagram caption, or personalized gift.\n\n## 4. Suggested Outline\n\n### H2: What Makes a Good Father’s Day Quote?\n\n**Goal:** Giúp người đọc biết cách chọn quote, không chỉ copy random.\n\n**Required answer:**\n\n\u003e A good Father’s Day quote should match your relationship with your dad, the feeling you want to express, and the place where the quote will appear.\n\n---\n\n### H2: Best Short Father’s Day Quotes\n\n**Goal:** Phục vụ caption, mug, shirt, short message.\n\n**Required answer:**\n\n\u003e Short Father’s Day quotes work best when you need a message that is easy to read, remember, and use on cards, captions, or personalized gifts.\n\n---\n\n### H2: Heartfelt Father’s Day Quotes\n\n**Goal:** Phục vụ emotional intent.\n\n**Required answer:**\n\n\u003e Heartfelt Father’s Day quotes are best for cards, letters, tribute posts, and meaningful gifts because they express love and gratitude in a deeper way.\n\n---\n\n### H2: Funny Father’s Day Quotes\n\n**Goal:** Phục vụ người muốn nhẹ nhàng, vui vẻ.\n\n**Required answer:**\n\n\u003e Funny Father’s Day quotes work best when your dad enjoys humor and your relationship has a playful tone.\n\n---\n\n### H2: Father’s Day Quotes from Daughter\n\n**Goal:** Relationship intent.\n\n**Required answer:**\n\n\u003e Father’s Day quotes from a daughter should express love, pride, and appreciation for the bond between a father and daughter.\n\n---\n\n### H2: Father’s Day Quotes from Son\n\n**Goal:** Relationship intent.\n\n**Required answer:**\n\n\u003e Father’s Day quotes from a son often work best when they show respect, gratitude, and the influence a father has had on his life.\n\n---\n\n### H2: Father’s Day Quotes for Personalized Gifts\n\n**Goal:** Conversion support.\n\n**Required answer:**\n\n\u003e Father’s Day quotes for personalized gifts should be short, clear, and emotionally specific so they remain readable on mugs, shirts, blankets, and photo gifts.\n\n---\n\n### H2: How to Choose the Right Father’s Day Quote\n\n**Goal:** Decision support.\n\n**Required answer:**\n\n\u003e Choose a Father’s Day quote by matching three things: who the quote is for, what emotion you want to express, and where the quote will be used.\n\n## 5. Decision Table\n\n| Situation | Best quote style | Recommended format |\n|---|---|---|\n| Card | Heartfelt | 1 quote + 1 personal message |\n| Instagram | Short / funny | 1 short quote + simple caption |\n| Mug | Short / warm | Under 8–12 words |\n| Shirt | Funny / proud | Bold, easy-to-read quote |\n| Blanket | Emotional / family | Longer warm quote |\n| Memorial post | Gentle / remembrance | Respectful tribute quote |\n\n## 6. CTA Example\n\n\u003e After choosing a quote, you can make it more personal by adding it to a Father’s Day mug, shirt, blanket, or photo gift that matches your dad’s personality.\n\n---\n\n# PHẦN 5. NGUYÊN TẮC CUỐI CHO TEAM CONTENT\n\n## 1. Không viết dài chỉ để dài\n\nĐộ dài không phải mục tiêu. Đúng intent, rõ answer, có value layer mới là mục tiêu.\n\n## 2. Không nhồi Information Gain, EEAT, Entity vào mọi đoạn\n\nCác yếu tố này cần thiết nhưng phải đặt đúng chỗ. Answer layer phải ngắn và rõ. Value layer mới là nơi bổ sung insight, entity depth, data và experience.\n\n## 3. Mỗi section phải trả lời một câu hỏi thật\n\nNếu section không trả lời câu hỏi nào, nên xóa hoặc gộp.\n\n## 4. Mỗi đoạn phải có khả năng được trích xuất\n\nĐoạn tốt là đoạn đứng một mình vẫn có nghĩa.\n\n## 5. Blog phải vừa phục vụ AI vừa phục vụ người đọc thật\n\nAI cần answer rõ. Người đọc cần ví dụ, insight, hướng dẫn và bước tiếp theo.\n\n---\n\n# KẾT LUẬN\n\nContent trong thời đại Zero Click không thể chỉ là bài viết dài tối ưu keyword. Team content cần chuyển sang tư duy thiết kế **answer assets**: mỗi bài là một hệ thống câu trả lời có cấu trúc, mỗi section xử lý một intent, mỗi đoạn có thể được AI hiểu và trích xuất.\n\nVới bài **Best Father’s Day Quotes**, mục tiêu không phải chỉ là liệt kê nhiều quote nhất. Mục tiêu đúng là giúp người đọc **chọn quote phù hợp nhất theo người nhận, cảm xúc, kênh sử dụng và hành động tiếp theo**.\n\nĐó là cách content vừa có khả năng được AI/search engine chọn, vừa có giá trị thật với người đọc, vừa hỗ trợ chuyển đổi một cách tự nhiên.\n\n";
+
+const state = {
+  sections: [],
+  activeFilter: "all",
+  query: "",
+  anchors: [],
+};
+
+const els = {
+  content: document.querySelector("#content"),
+  toc: document.querySelector("#toc"),
+  status: document.querySelector("#status"),
+  heroTitle: document.querySelector("#heroTitle"),
+  heroSubtitle: document.querySelector("#heroSubtitle"),
+  moduleCount: document.querySelector("#moduleCount"),
+  tableCount: document.querySelector("#tableCount"),
+  checklistCount: document.querySelector("#checklistCount"),
+  progress: document.querySelector("#readProgress"),
+  progressText: document.querySelector("#progressText"),
+  search: document.querySelector("#docSearch"),
+  expandAll: document.querySelector("#expandAll"),
+  backTop: document.querySelector("#backTop"),
+};
+
+document.addEventListener("DOMContentLoaded", init);
+
+async function init() {
+  bindUi();
+
+  try {
+    const markdown = await loadMarkdown();
+    const normalized = markdown.replace(/\r\n/g, "\n");
+    const parsed = splitDocument(normalized);
+    state.sections = parsed.sections;
+
+    renderHero(parsed);
+    renderContent(state.sections);
+    renderToc(state.sections);
+    renderMetrics(normalized, state.sections);
+    observeHeadings();
+    updateProgress();
+    setStatus("");
+  } catch (error) {
+    setStatus(
+      `Không đọc được file Markdown "${SOURCE_MD}". Hãy mở trang qua local server trong thư mục này để trình duyệt cho phép tải file .md.`
+    );
+    console.error(error);
+  }
+}
+
+async function loadMarkdown() {
+  try {
+    const response = await fetch(SOURCE_MD, { cache: "no-store" });
+    if (response.ok) return response.text();
+  } catch (error) {
+    console.info("Using embedded Markdown fallback.");
+  }
+
+  if (EMBEDDED_MARKDOWN) return EMBEDDED_MARKDOWN;
+  throw new Error(`Markdown request failed and no fallback is embedded.`);
+}
+
+function splitDocument(markdown) {
+  const lines = markdown.split("\n");
+  const titleLines = [];
+  let startIndex = 0;
+
+  while (startIndex < lines.length && /^#\s+/.test(lines[startIndex])) {
+    titleLines.push(lines[startIndex].replace(/^#\s+/, "").trim());
+    startIndex += 1;
+  }
+
+  const sections = [];
+  let current = null;
+
+  for (let i = startIndex; i < lines.length; i += 1) {
+    const line = lines[i];
+    const h1 = line.match(/^#\s+(.+)$/);
+    const isMajor = h1 && /^(PHẦN|MODULE|KẾT LUẬN)/i.test(h1[1].trim());
+
+    if (isMajor) {
+      if (current) sections.push(current);
+      current = {
+        title: h1[1].trim(),
+        raw: [],
+        type: getSectionType(h1[1].trim()),
+        id: uniqueSlug(h1[1].trim(), sections.length),
+      };
+      continue;
+    }
+
+    if (!current) {
+      current = {
+        title: "Case study xuyên suốt",
+        raw: [],
+        type: "part",
+        id: "case-study-xuyen-suot",
+      };
+    }
+    current.raw.push(line);
+  }
+
+  if (current) sections.push(current);
+
+  return {
+    title: titleLines[1] || titleLines[0] || "Training Content Blog",
+    subtitle:
+      "Tài liệu trực quan hóa từ Markdown: học theo module, so sánh nhanh, mở ví dụ và checklist khi cần.",
+    sections,
+  };
+}
+
+function getSectionType(title) {
+  if (/^MODULE/i.test(title)) return "module";
+  if (/CHECKLIST/i.test(title) || /^PHẦN 4/i.test(title)) return "checklist";
+  return "part";
+}
+
+function renderHero(parsed) {
+  els.heroTitle.textContent = parsed.title;
+  els.heroSubtitle.textContent = parsed.subtitle;
+}
+
+function renderMetrics(markdown, sections) {
+  els.moduleCount.textContent = sections.filter((section) => section.type === "module").length;
+  els.tableCount.textContent = String((markdown.match(/^\|.+\|$/gm) || []).length > 0
+    ? countTables(markdown)
+    : 0);
+  els.checklistCount.textContent = String((markdown.match(/Checklist/gi) || []).length);
+}
+
+function countTables(markdown) {
+  const lines = markdown.split("\n");
+  let count = 0;
+  let inTable = false;
+  lines.forEach((line) => {
+    const isTable = /^\|.+\|$/.test(line.trim());
+    if (isTable && !inTable) count += 1;
+    inTable = isTable;
+  });
+  return count;
+}
+
+function renderContent(sections) {
+  els.content.innerHTML = "";
+  const moduleLinks = sections
+    .filter((section) => section.type === "module")
+    .slice(0, 14)
+    .map((section) => `<a href="#${section.id}">${escapeHtml(shortTitle(section.title))}</a>`)
+    .join("");
+
+  if (moduleLinks) {
+    const map = document.createElement("section");
+    map.className = "quick-map";
+    map.innerHTML = moduleLinks;
+    els.content.appendChild(map);
+  }
+
+  sections.forEach((section, index) => {
+    const article = document.createElement("article");
+    article.className = "training-section";
+    article.dataset.type = section.type;
+    article.id = section.id;
+    article.dataset.searchText = normalizeSearch(`${section.title}\n${section.raw.join("\n")}`);
+
+    const bodyHtml = markdownToHtml(section.raw.join("\n"), section.id);
+    article.innerHTML = `
+      <header class="section-head">
+        <div class="section-kicker">
+          <span class="section-badge">${labelForType(section.type)}</span>
+          <span>${String(index + 1).padStart(2, "0")}</span>
+        </div>
+        <h2>${escapeHtml(section.title)}</h2>
+      </header>
+      <div class="section-body">${bodyHtml}</div>
+    `;
+    els.content.appendChild(article);
+  });
+
+  decorateDetails();
+}
+
+function renderToc(sections) {
+  const links = [];
+  sections.forEach((section) => {
+    links.push(`<a class="toc-h1" href="#${section.id}">${escapeHtml(shortTitle(section.title))}</a>`);
+    getLocalHeadings(section.raw.join("\n"), section.id).slice(0, 4).forEach((heading) => {
+      links.push(
+        `<a class="toc-h2" href="#${heading.id}">${escapeHtml(shortTitle(heading.text, 52))}</a>`
+      );
+    });
+  });
+  els.toc.innerHTML = links.join("");
+}
+
+function getLocalHeadings(markdown, prefix) {
+  const used = new Map();
+  return markdown
+    .split("\n")
+    .map((line) => line.match(/^(#{2,3})\s+(.+)$/))
+    .filter(Boolean)
+    .map((match) => {
+      const text = match[2].trim();
+      const id = `${prefix}-${makeUnique(slugify(text), used)}`;
+      return { level: match[1].length, text, id };
+    });
+}
+
+function markdownToHtml(markdown, prefix) {
+  const lines = markdown.split("\n");
+  const html = [];
+  let paragraph = [];
+  let list = null;
+  let table = [];
+  let quote = [];
+  const used = new Map();
+
+  const flushParagraph = () => {
+    if (!paragraph.length) return;
+    html.push(`<p>${inline(paragraph.join(" "))}</p>`);
+    paragraph = [];
+  };
+
+  const flushList = () => {
+    if (!list) return;
+    html.push(`<${list.type}>${list.items.map(renderListItem).join("")}</${list.type}>`);
+    list = null;
+  };
+
+  const flushTable = () => {
+    if (!table.length) return;
+    html.push(renderTable(table));
+    table = [];
+  };
+
+  const flushQuote = () => {
+    if (!quote.length) return;
+    const text = quote.join(" ").trim();
+    html.push(`<aside class="callout ${calloutClass(text)}">${inline(text)}</aside>`);
+    quote = [];
+  };
+
+  lines.forEach((rawLine) => {
+    const line = rawLine.trimEnd();
+    const trimmed = line.trim();
+
+    if (/^\|.+\|$/.test(trimmed)) {
+      flushParagraph();
+      flushList();
+      flushQuote();
+      table.push(trimmed);
+      return;
+    }
+    flushTable();
+
+    if (!trimmed) {
+      flushParagraph();
+      flushList();
+      flushQuote();
+      return;
+    }
+
+    if (/^---+$/.test(trimmed)) {
+      flushParagraph();
+      flushList();
+      flushQuote();
+      html.push('<div class="content-divider"></div>');
+      return;
+    }
+
+    const heading = trimmed.match(/^(#{2,4})\s+(.+)$/);
+    if (heading) {
+      flushParagraph();
+      flushList();
+      flushQuote();
+      const level = Math.min(heading[1].length + 1, 4);
+      const text = heading[2].trim();
+      const id = `${prefix}-${makeUnique(slugify(text), used)}`;
+      html.push(`<h${level} id="${id}">${inline(text)}</h${level}>`);
+      return;
+    }
+
+    const quoteMatch = trimmed.match(/^>\s?(.*)$/);
+    if (quoteMatch) {
+      flushParagraph();
+      flushList();
+      quote.push(quoteMatch[1]);
+      return;
+    }
+
+    const unordered = trimmed.match(/^[-*]\s+(.+)$/);
+    const ordered = trimmed.match(/^\d+\.\s+(.+)$/);
+    if (unordered || ordered) {
+      flushParagraph();
+      flushQuote();
+      const type = ordered ? "ol" : "ul";
+      if (!list || list.type !== type) {
+        flushList();
+        list = { type, items: [] };
+      }
+      list.items.push((unordered || ordered)[1]);
+      return;
+    }
+
+    paragraph.push(trimmed);
+  });
+
+  flushParagraph();
+  flushList();
+  flushTable();
+  flushQuote();
+
+  return html.join("");
+}
+
+function renderTable(rows) {
+  const parsed = rows
+    .map((row) => row.replace(/^\||\|$/g, "").split("|").map((cell) => cell.trim()))
+    .filter((cells) => !cells.every((cell) => /^:?-{3,}:?$/.test(cell)));
+
+  if (!parsed.length) return "";
+  const [head, ...body] = parsed;
+  return `
+    <div class="table-wrap" role="region" aria-label="Bảng so sánh" tabindex="0">
+      <table>
+        <thead><tr>${head.map((cell) => `<th>${inline(cell)}</th>`).join("")}</tr></thead>
+        <tbody>${body
+          .map((row) => `<tr>${row.map((cell) => `<td>${inline(cell)}</td>`).join("")}</tr>`)
+          .join("")}</tbody>
+      </table>
+    </div>
+  `;
+}
+
+function renderListItem(item) {
+  const task = item.match(/^\[\s?\]\s+(.+)$/);
+  if (task) {
+    return `<li class="task-li"><label><input type="checkbox" /> <span>${inline(task[1])}</span></label></li>`;
+  }
+  return `<li>${inline(item)}</li>`;
+}
+
+function decorateDetails() {
+  document.querySelectorAll(".section-body").forEach((body) => {
+    [...body.children].forEach((node) => {
+      if (!/^H[234]$/.test(node.tagName)) return;
+      const title = node.textContent.trim();
+      const shouldCollapse = /ví dụ|example|checklist|faq|cta sai|cta đúng/i.test(title);
+      if (!shouldCollapse) return;
+
+      const details = document.createElement("details");
+      details.className = /checklist/i.test(title) ? "checklist-card" : "example-card";
+      details.id = node.id;
+      if (/ví dụ tốt|ví dụ áp dụng đúng|faq tốt/i.test(title)) details.open = true;
+
+      const summary = document.createElement("summary");
+      summary.textContent = title;
+      const wrapper = document.createElement("div");
+      wrapper.className = "details-body";
+
+      let cursor = node.nextElementSibling;
+      while (cursor && !isSameOrHigherHeading(cursor, node)) {
+        const next = cursor.nextElementSibling;
+        wrapper.appendChild(cursor);
+        cursor = next;
+      }
+
+      details.append(summary, wrapper);
+      node.replaceWith(details);
+    });
+  });
+}
+
+function isSameOrHigherHeading(candidate, currentHeading) {
+  if (!/^H[234]$/.test(candidate.tagName)) return false;
+  return Number(candidate.tagName.slice(1)) <= Number(currentHeading.tagName.slice(1));
+}
+
+function bindUi() {
+  document.querySelectorAll("[data-filter]").forEach((button) => {
+    button.addEventListener("click", () => {
+      document.querySelectorAll("[data-filter]").forEach((item) => item.classList.remove("active"));
+      button.classList.add("active");
+      state.activeFilter = button.dataset.filter;
+      applyFilters();
+    });
+  });
+
+  els.search.addEventListener("input", () => {
+    state.query = normalizeSearch(els.search.value);
+    applyFilters();
+  });
+
+  els.expandAll.addEventListener("click", () => {
+    const details = [...document.querySelectorAll("details")];
+    const shouldOpen = details.some((item) => !item.open);
+    details.forEach((item) => {
+      item.open = shouldOpen;
+    });
+    els.expandAll.textContent = shouldOpen ? "Đóng tất cả ví dụ" : "Mở tất cả ví dụ";
+  });
+
+  els.backTop.addEventListener("click", () => {
+    document.querySelector("#top").scrollIntoView({ behavior: "smooth" });
+  });
+
+  window.addEventListener("scroll", () => {
+    updateProgress();
+    els.backTop.classList.toggle("is-visible", window.scrollY > 600);
+  }, { passive: true });
+}
+
+function applyFilters() {
+  document.querySelectorAll(".training-section").forEach((section) => {
+    const typeMatch = state.activeFilter === "all" || section.dataset.type === state.activeFilter;
+    const searchMatch = !state.query || section.dataset.searchText.includes(state.query);
+    section.classList.toggle("is-hidden", !(typeMatch && searchMatch));
+  });
+}
+
+function observeHeadings() {
+  state.anchors = [...document.querySelectorAll(".training-section[id], .section-body h3[id], .section-body h4[id]")];
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visible) return;
+      const id = visible.target.id;
+      document.querySelectorAll(".toc a").forEach((link) => {
+        link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
+      });
+    },
+    { rootMargin: "-18% 0px -70% 0px", threshold: [0, 0.2, 0.7] }
+  );
+
+  state.anchors.forEach((anchor) => observer.observe(anchor));
+}
+
+function updateProgress() {
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollable > 0 ? Math.min(100, Math.max(0, (window.scrollY / scrollable) * 100)) : 0;
+  els.progress.style.width = `${progress}%`;
+  els.progressText.textContent = `${Math.round(progress)}%`;
+}
+
+function setStatus(message) {
+  els.status.textContent = message;
+  els.status.classList.toggle("is-hidden", !message);
+}
+
+function labelForType(type) {
+  if (type === "module") return "Module";
+  if (type === "checklist") return "Checklist";
+  return "Phần chính";
+}
+
+function shortTitle(text, max = 64) {
+  const cleaned = text.replace(/^PHẦN\s+\d+\.\s*/i, "").replace(/^MODULE\s+\d+\.\s*/i, "");
+  return cleaned.length > max ? `${cleaned.slice(0, max - 1)}…` : cleaned;
+}
+
+function calloutClass(text) {
+  if (/không nên|sai|lỗi|vấn đề/i.test(text)) return "warning";
+  if (/insight|mục tiêu|định nghĩa|cách tiếp cận/i.test(text)) return "gold";
+  return "";
+}
+
+function inline(text) {
+  return escapeHtml(text)
+    .replace(/`([^`]+)`/g, "<code>$1</code>")
+    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+    .replace(/\*([^*]+)\*/g, "<em>$1</em>");
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function slugify(value) {
+  return value
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/đ/g, "d")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 80) || "section";
+}
+
+function uniqueSlug(value, index) {
+  return `${slugify(value)}-${index + 1}`;
+}
+
+function makeUnique(base, used) {
+  const count = used.get(base) || 0;
+  used.set(base, count + 1);
+  return count ? `${base}-${count + 1}` : base;
+}
+
+function normalizeSearch(value) {
+  return value
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/đ/g, "d");
+}
+
+
+
+
+
+    </script>
+  </body>
+</html>
+
